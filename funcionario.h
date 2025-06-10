@@ -3,16 +3,16 @@ using namespace std;
 
 class Funcionario {
 protected:
-    string nome;
+    	string nome;
 	float salarioBase;
 private:
 	int id;
 public:
 	Funcionario(string n, float s, int i);
-    string getNome();
+   	string getNome();
 	void setNome(string n);
-    float getSalarioBase();
-    void setSalarioBase(float s);
+    	float getSalarioBase();
+   	void setSalarioBase(float s);
 	int getId();
 	void setId(int i);
 	
@@ -23,7 +23,6 @@ public:
 class Desenvolvedor : public Funcionario {
 private:
 	int quantidadeDeProjetos;
-
 public:
 	Desenvolvedor(string n, float s, int i, int q);
 	float calcularSalarioFinal();
@@ -33,7 +32,6 @@ public:
 class Gerente : public Funcionario {
 private:
 	float bonusMensal;
-
 public:
 	Gerente(string n, float s, int i, float b);
 	float calcularSalarioFinal();
@@ -43,7 +41,6 @@ public:
 class Estagiario : public Funcionario { 
 private:
 	int horasTrabalhadas;
-
 public:
 	Estagiario(string n, float s, int i, int h);
 	float calcularSalarioFinal();
