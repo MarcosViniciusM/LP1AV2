@@ -39,6 +39,8 @@ void Funcionario::exibirInformacoes(){
 	cout << "Nome: " << getNome() << endl;
 }
 
+// Objeto Desenvolvedor
+
 float Desenvolvedor::calcularSalarioFinal(){
 	return salarioBase + (500 * quantidadeDeProjetos);
 }
@@ -56,6 +58,8 @@ Desenvolvedor::Desenvolvedor(string n, float s, int i, int q) : Funcionario (n, 
 	quantidadeDeProjetos = q;
 }
 
+// Objeto Gerente
+
 float Gerente::calcularSalarioFinal(){
 	return salarioBase + bonusMensal;
 }
@@ -72,6 +76,8 @@ void Gerente::exibirInformacoes(){
 Gerente::Gerente(string n, float s, int i, float b) : Funcionario (n, s, i){
 	bonusMensal = b;
 }
+
+// Objeto Estagiario
 
 float Estagiario::calcularSalarioFinal(){
 	return salarioBase * (horasTrabalhadas / 160.0);
