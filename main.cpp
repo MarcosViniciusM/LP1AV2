@@ -4,16 +4,17 @@
 using namespace std;
 
 int main() {
-	
+
+	// Variáveis para auxiliar no menu do programa
 	int escolha, escolha2, run = 1;
-	
+
+	// Variáveis para auxiliar nos construtores dos objetos
 	string n2;
 	int i2, q2, h2;
 	float s2, b2;
 	
 	Funcionario* matriz[10];
 	int tamanhoMatriz=0;
-	//Funcionario** matriz = new Funcionario*[10];
 	
 	do{
 		
@@ -24,6 +25,7 @@ int main() {
 		escolha = 0;
 		cin >> escolha;
 		switch(escolha){
+			// Criação de um objeto Funcionário, para ser colocado na matriz
 			case 1:
 				cout << "Nome: " << endl;
 				cin >> n2;
@@ -38,6 +40,7 @@ int main() {
 				cout << "2 - Gerente" << endl;
 				cout << "3 - Estagiario" << endl;
 				cin >> escolha2;
+				// Escolha do tipo de funcionário
 				switch(escolha2){
 					case 1:
 						cout << "Quantidade de projetos: " << endl;
@@ -59,7 +62,7 @@ int main() {
 						break;
 				}
 				break;
-			
+			// Lê os funcionários já colocados na matriz (Apenas caso tenha 6 ou mais funcionários)
 			case 2:
 				if(tamanhoMatriz<5){
 					cout << "Necessario mais de 6 funcionarios!" << endl;
@@ -68,31 +71,34 @@ int main() {
 				for(int i=0;i<tamanhoMatriz;i++){
 					matriz[i]->exibirInformacoes();
 				};
-			break;
+				break;
+			// Para o programa (Apenas após 6 funcionários tenham sido criados)
 			case 3:
 				if(tamanhoMatriz<5){
-					cout << "Necessario mais de 6 funcionarios!" << endl;
+					cout << "Necessario 6 funcionarios ou mais!" << endl;
 					break;
 				};
-			run = 0;
+				run = 0;
 			break;
+			// Escolha de debug para agilizar o processo de verificação do sistema
 			case 27:
-			matriz[0] = new Desenvolvedor("Jackson", 200, 101, 5);
-			matriz[1] = new Gerente("Maxwell", 5000, 102, 2000);
-			matriz[2] = new Desenvolvedor("Khadija", 100, 103, 8);
-			matriz[3] = new Desenvolvedor("Zurich", 300, 104, 1);
-			matriz[4] = new Gerente("Sarah", 20000, 105, 50000);
-			matriz[5] = new Estagiario("Sam", 50, 106, 320);
-			tamanhoMatriz=5;
-			for(int i=0;i<tamanhoMatriz;i++){
-				matriz[i]->exibirInformacoes();
-			};
-			
-			run = 0;
-			break;
+				matriz[0] = new Desenvolvedor("Jackson", 200, 101, 5);
+				matriz[1] = new Gerente("Maxwell", 5000, 102, 2000);
+				matriz[2] = new Desenvolvedor("Khadija", 100, 103, 8);
+				matriz[3] = new Desenvolvedor("Zurich", 300, 104, 1);
+				matriz[4] = new Gerente("Sarah", 20000, 105, 50000);
+				matriz[5] = new Estagiario("Sam", 50, 106, 320);
+				tamanhoMatriz=5;
+				for(int i=0;i<tamanhoMatriz;i++){
+					matriz[i]->exibirInformacoes();
+				};
+				//Cessa o laço while
+				run = 0;
+				break;
 		}
 	} while ( run == 1);
-	
+
+	// Deleta os espaços criados da memória (certificar se não cria memory leak?)
 	for(int i=0;i<tamanhoMatriz;i++){
 		delete matriz[i];
 	};
